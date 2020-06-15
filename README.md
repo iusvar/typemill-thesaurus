@@ -53,9 +53,11 @@ Creation of dictionaries for each language already available in the TYPEMILL CMS
 
 If other languages were added, currently not available, they would be taken into consideration their dictionaries.
 
-## Licence
+## Licence and Credits
 
 Typemill-thesaurus is published under MIT licence. Please check the licence of the included libraries, too.
+
+This plugin would not have been possible without the [LibreOffice dictionaries](https://github.com/LibreOffice/dictionaries). Make sure you give that project a star on GitHub. Please read the licenses for each individual dictionary in the `data` folder.
 
 ## How to Contribute
 
