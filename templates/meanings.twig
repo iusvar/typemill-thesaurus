@@ -1,0 +1,37 @@
+<span class="execution_time">
+  <b>{{ search_for }}</b>
+  <span>{{ __('in', labels) }} {{ execution_time|number_format(2, ',', '.') }} ms</span>
+</span>
+
+{% for meaning in meanings %}
+
+  {% set senses = meaning|split('|') %}
+  {% set length = senses|length %}
+  
+  {% if length > 2 %}
+    <li class="menu-item submenu">
+      
+      <button type="button" class="menu-btn">
+        <span class="menu-text">{{ senses[0] ~ ' ' ~ senses[1] }}</span>
+      </button>
+      
+      <menu class="menu">
+        {% for sense in senses[1:] %}
+          <li class="menu-item">
+            <button type="button" class="menu-btn">
+              <span word="{{ sense|trim }}" class="menu-text">{{ sense|trim }}</span>
+            </button>
+          </li>
+        {% endfor %}
+      </menu>
+
+    </li>
+  {% else %}
+    <li class="menu-item">
+      <button type="button" class="menu-btn">
+        <span word="{{ sense|trim }}" class="menu-text">{{ meaning|trim }}</span>
+      </button>
+    </li>
+  {% endif %}
+
+{% endfor %}
