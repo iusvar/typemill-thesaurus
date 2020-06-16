@@ -6,3 +6,16 @@ homepage: https://github.com/iusvar/typemill-thesaurus
 licence: MIT
 paypal: https://paypal.me/diamante71
 amount: 5
+
+settings:
+  data_base: dat
+
+forms:
+  fields:
+
+    data_base:
+      type: radio
+      label: Choose Your Data Base
+      options:
+        sqlite: Sqlite3 File
+        dat: Original Dat file

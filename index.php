@@ -12,9 +12,46 @@ class Index extends Plugin
   // What for?
   public static function getSubscribedEvents(){}
 
+	public function searchDat($dbfile, $search_for)
+	{
+		$meanings = [];
+		$search_for = $search_for.'|';
+		$length = strlen($search_for);
+		$matches = array();
+		$row = 0;
 
+		$file = new \SplFileObject($dbfile);
+		while (!$file->eof()) {
+			$row++;
+			$buffer = $file->fgets();
+			if(strpos($buffer, $search_for) !== FALSE){
+				if(substr($buffer,0,$length)==$search_for){
+					$matches[$row] = $buffer;
+				}
+			}
+		}
+		
+		if(!empty($matches)){
+			$row = key($matches);
+			$pieces = explode('|',$matches[$row]);
+			$word = $pieces[0];
+			$number = $pieces[1];
+			
+			$file->seek($row);
+			while($number != 0){
+				$meanings[] = $file->current();
+				$number = $number - 1;
+				$file->next();
+			}
+		}
+		$file = null;
+		
+		return $meanings;
+	}
+
+	
   // Database search
-  public function searchDatabase($dbfile, $search_for)
+  public function searchSqlite($dbfile, $search_for)
   {
     // create a SQLite3 object and open a connection to the SQLite3 database.
     $db = new SQLite3($dbfile, SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
@@ -47,6 +84,10 @@ class Index extends Plugin
 
   public function meanings()
   {
+	
+	$userSettings = \Typemill\Settings::getUserSettings();
+    $data_base = $userSettings['plugins']['thesaurus']['data_base'];
+    
     // get the word to search
     $search_for = $_GET['search_for'];
     $search_for = strtolower($search_for);
@@ -59,7 +100,7 @@ class Index extends Plugin
     // which language
     $userSettings = \Typemill\Settings::getUserSettings();
     $language = $userSettings['language'];
-    $filename = $language . '.thesaurus.sqlite';
+    $filename = $language . '.thesaurus.'.$data_base;
     $dbfile = __DIR__ . '/data/' . $filename;
 
     // THIS WORKS BUT I DON'T LIKE IT AT ALL.
@@ -80,8 +121,12 @@ class Index extends Plugin
     // start the stopwatch
     $startTimer = microtime(true);
 
-    // Database search
-    $meanings = self::searchDatabase($dbfile, $search_for);
+    // data base search
+    if($data_base == 'sqlite'){
+		$meanings = self::searchSqlite($dbfile, $search_for);
+	} else {
+		$meanings = self::searchDat($dbfile, $search_for);
+	}
     $count = count($meanings);
 
     // stop the stopwatch and get the time taken
