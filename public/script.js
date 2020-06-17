@@ -1,29 +1,29 @@
-var start = document.createElement("input");
-start.setAttribute("type", "hidden");
-start.setAttribute("id", "thesaurus_start");
-document.body.appendChild(start);
+var thesaurus_start = document.createElement("input");
+thesaurus_start.setAttribute("type", "hidden");
+thesaurus_start.setAttribute("id", "thesaurus_start");
+document.body.appendChild(thesaurus_start);
 
-var end = document.createElement("input");
-end.setAttribute("type", "hidden");
-end.setAttribute("id", "thesaurus_end");
-document.body.appendChild(end);
+var thesaurus_end = document.createElement("input");
+thesaurus_end.setAttribute("type", "hidden");
+thesaurus_end.setAttribute("id", "thesaurus_end");
+document.body.appendChild(thesaurus_end);
 
-var pagex = document.createElement("input");
-pagex.setAttribute("type", "hidden");
-pagex.setAttribute("id", "thesaurus_pagex");
-document.body.appendChild(pagex);
+var thesaurus_pagex = document.createElement("input");
+thesaurus_pagex.setAttribute("type", "hidden");
+thesaurus_pagex.setAttribute("id", "thesaurus_pagex");
+document.body.appendChild(thesaurus_pagex);
 
-var pagey = document.createElement("input");
-pagey.setAttribute("type", "hidden");
-pagey.setAttribute("id", "thesaurus_pagey");
-document.body.appendChild(pagey);
+var thesaurus_pagey = document.createElement("input");
+thesaurus_pagey.setAttribute("type", "hidden");
+thesaurus_pagey.setAttribute("id", "thesaurus_pagey");
+document.body.appendChild(thesaurus_pagey);
 
-var search_for = document.createElement("input");
-search_for.setAttribute("type", "hidden");
-search_for.setAttribute("id", "thesaurus_search_for");
-document.body.appendChild(search_for);
+var thesaurus_search_for = document.createElement("input");
+thesaurus_search_for.setAttribute("type", "hidden");
+thesaurus_search_for.setAttribute("id", "thesaurus_search_for");
+document.body.appendChild(thesaurus_search_for);
 
-var menu = document.createElement('menu');
-menu.setAttribute("class","menu");
-menu.setAttribute("id","thesaurus_menu");
-document.body.appendChild(menu);
+var thesaurus_menu = document.createElement('menu');
+thesaurus_menu.setAttribute("class","menu");
+thesaurus_menu.setAttribute("id","thesaurus_menu");
+document.body.appendChild(thesaurus_menu);
