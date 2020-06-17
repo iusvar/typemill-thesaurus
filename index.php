@@ -35,12 +35,12 @@ class Index extends Plugin
 			$row = key($matches);
 			$pieces = explode('|',$matches[$row]);
 			$word = $pieces[0];
-			$number = $pieces[1];
+			$number = intval($pieces[1]);
 			
 			$file->seek($row);
 			while($number != 0){
 				$meanings[] = $file->current();
-				$number = $number - 1;
+				$number -= 1;
 				$file->next();
 			}
 		}
