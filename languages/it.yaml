@@ -1,9 +1,12 @@
 # Italiano, Plugin Dizionario per Typemill
+CHOOSE_YOUR_DATA_BASE: Scegli la tua base di dati
 CONTAINING: contenente
 DATABASE: Archivio
 DEFINITIONS: definizioni
 DOES_NOT_EXIST: non esiste!
 IN: in
 IS_NOT_PRESENT_IN: non è presente in
+ORIGINAL_DAT_FILE: Archivio Dat originale # funzionerà quando when radio/option/label adotterà traduzione in system/author/partials/fields.twig
 SEARCH_DONE_IN: Ricerca effettuata in
+SQLITE3_FILE: Archivio sqlite3  # funzionerà quando when radio/option/label adotterà traduzione in system/author/partials/fields.twig 
 THESAURUS: Dizionario
