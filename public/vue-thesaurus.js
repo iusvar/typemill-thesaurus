@@ -82,22 +82,31 @@ let thesaurus = new Vue({
 				let pagey = document.querySelector('#thesaurus_pagey').value;
 				let menu = document.querySelector('#thesaurus_menu');
 
+				// gets the screen size and its half
+				let width = screen.width;
+				let half_width = width / 2;
+
 				let html = response.data;
 				if( html.includes('ERROR') ) {
 					Toastify({text: html}).showToast();
-					/*Toastify({
-					text: html,
-					duration: 3000,
-					destination: 'https://github.com/apvarun/toastify-js',
-					newWindow: true,
-					close: false,
-					gravity: "top", // `top` or `bottom`
-					positionLeft: true, // `true` or `false`
-					backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)"
-					}).showToast();*/
 					menu.style.display = 'none';
 				} else {
 					menu.innerHTML = html;
+
+					// the submenu is displayed on the left if the mouse position exceeds half the screen size
+					let npagex = Number(pagex);
+					if(npagex > half_width){
+						var thesaurus_side = document.querySelectorAll(".thesaurus_side");
+						thesaurus_side.forEach(function(elemento) {
+							elemento.classList.add('thesaurus_left');
+						});
+					} else {
+						var thesaurus_side = document.querySelectorAll(".thesaurus_side");
+						thesaurus_side.forEach(function(elemento) {
+							elemento.classList.add('thesaurus_right');
+						});
+					}
+
 					menu.style.display = 'block';
 					menu.style.left = pagex + 'px';
 					menu.style.top = pagey + 'px';
