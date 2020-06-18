@@ -14,6 +14,9 @@ class Index extends Plugin
 
 	public function searchDat($dbfile, $search_for)
 	{
+		$userSettings = \Typemill\Settings::getUserSettings();
+		$language = $userSettings['language'];
+    
 		$meanings = [];
 		$search_for = $search_for.'|';
 		$length = strlen($search_for);
@@ -39,7 +42,17 @@ class Index extends Plugin
 			
 			$file->seek($row);
 			while($number != 0){
-				$meanings[] = $file->current();
+
+				switch ($language) {
+					case 'it':
+						//$meanings[] = utf8_encode($file->current());
+						$meanings[] = iconv("ISO-8859-15","UTF-8",$file->current());
+						break;
+					default:
+						$meanings[] = $file->current();
+						break;
+				}
+    
 				$number -= 1;
 				$file->next();
 			}
