@@ -35,7 +35,7 @@ let thesaurus = new Vue({
 
 			}
 			let menu = document.querySelector('#thesaurus_menu');
-			menu.classList.remove('show-menu');
+			menu.classList.remove('thesaurus_show');
 		},
 
 
@@ -101,7 +101,7 @@ let thesaurus = new Vue({
 					menu.style.display = 'block';
 					menu.style.left = pagex + 'px';
 					menu.style.top = pagey + 'px';
-					menu.classList.add('show-menu');
+					menu.classList.add('thesaurus_show');
 				}
 
 			})

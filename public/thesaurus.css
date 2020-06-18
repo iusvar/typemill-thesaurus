@@ -1,21 +1,26 @@
 .execution_time {
 	font-size:70%;
 	padding-left:3px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 input, select, button[type="button"] {
 	min-height: unset;
 }
-li.menu-item {
+
+li.thesaurus_item {
 	margin: unset;
 }
+
 button[type="button"] {
 	text-align: unset;
 }
 
-.menu {
+.thesaurus_menu {
 	position: absolute;
-	width: 200px;
+	/*width: 200px;*/
+	width: max-content;
 	padding: 2px;
 	margin: 0;
 	border: 1px solid #bbb;
@@ -32,14 +37,14 @@ button[type="button"] {
 	pointer-events: none;
 }
 
-.menu-item {
+.thesaurus_item {
 	display: block;
 	position: relative;
 	margin: 0;
 	padding: 0;
 }
 
-.menu-btn {
+.thesaurus_button {
 	background: none;
 	background-color:lightgray;
 	line-height: normal;
@@ -55,52 +60,28 @@ button[type="button"] {
 	text-align: left;
 	cursor: pointer;
 	border: 1px solid transparent;
-	/*white-space: nowrap;*/
 	padding: 2px 2px;
 	border-radius: 3px;
 }
-.menu-btn::-moz-focus-inner, .menu-btn::-moz-focus-inner {
+
+.thesaurus_button::-moz-focus-inner, .thesaurus_button::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
 
-.menu-text {
-	/*margin-left: 25px;
-	background-color: #4D978A;*/
-}
-
-/*.menu-btn .fa {
-	position: absolute;
-	left: 8px;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
-}*/
-
-.menu-btn .fa {
-	position: relative;
-	/* left: 8px; */
-	top: 8px;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
-
-.menu-item:hover > .menu-btn {
+.thesaurus_item:hover > .thesaurus_button {
 	color: #fff;
 	outline: none;
 	background-color: #4D978A;
-	border: 1px solid #2E3940;/**/
-	/*background-color: #2E3940;
-	background: -webkit-linear-gradient(to bottom, #5D6D79, #2E3940);
-	background: linear-gradient(to bottom, #5D6D79, #2E3940);*/
+	border: 1px solid #2E3940;
 }
 
-.menu-item.disabled {
+.thesaurus_item.disabled {
 	opacity: .5;
 	pointer-events: none;
 }
 
-.menu-item.disabled .menu-btn {
+.thesaurus_item.disabled .thesaurus_button {
 	cursor: default;
 }
 
@@ -112,34 +93,48 @@ button[type="button"] {
 	background-color: #aaa;
 }
 
-.menu-item.submenu::after {
+.thesaurus_item.thesaurus_submenu::after {
 	content: "";
 	position: absolute;
-	right: 6px;
+	left: 5px;
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 	border: 5px solid transparent;
-	border-left-color: #808080;
+	border-left-color: red;
 }
 
-.menu-item.submenu:hover::after {
+.thesaurus_item.thesaurus_submenu:hover::after {
 	border-left-color: #fff;
 }
 
-.menu .menu {
+.thesaurus_side {
 	top: 4px;
-	left: 99%;
 }
 
-.show-menu, .menu-item:hover > .menu {
+.thesaurus_right {
+	left: 99%;
+	right: unset;
+}
+
+.thesaurus_left {
+	right: 99%;
+	left: unset;
+}
+
+.thesaurus_show, .thesaurus_item:hover > .thesaurus_menu {
 	opacity: 1;
 	-webkit-transform: translate(0, 0) scale(1);
 	transform: translate(0, 0) scale(1);
 	pointer-events: auto;
 }
 
-.menu-item:hover > .menu {
+.thesaurus_item:hover > .thesaurus_menu {
 	-webkit-transition-delay: 100ms;
 	transition-delay: 300ms;
+}
+
+.thesaurus_text {
+	margin-left: 10px;
+	margin-right: 10px;
 }

@@ -24,6 +24,6 @@ thesaurus_search_for.setAttribute("id", "thesaurus_search_for");
 document.body.appendChild(thesaurus_search_for);
 
 var thesaurus_menu = document.createElement('menu');
-thesaurus_menu.setAttribute("class","menu");
+thesaurus_menu.setAttribute("class","thesaurus_menu");
 thesaurus_menu.setAttribute("id","thesaurus_menu");
 document.body.appendChild(thesaurus_menu);

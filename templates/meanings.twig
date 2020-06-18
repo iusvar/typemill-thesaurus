@@ -9,17 +9,17 @@
   {% set length = senses|length %}
   
   {% if length > 2 %}
-    <li class="menu-item submenu">
+    <li class="thesaurus_item thesaurus_submenu">
       
-      <button type="button" class="menu-btn">
-        <span class="menu-text">{{ senses[0] ~ ' ' ~ senses[1] }}</span>
+      <button type="button" class="thesaurus_button">
+        <span class="thesaurus_text">{{ senses[0] ~ ' ' ~ senses[1] }}</span>
       </button>
       
-      <menu class="menu">
+      <menu class="thesaurus_menu thesaurus_side">
         {% for sense in senses[1:] %}
-          <li class="menu-item">
-            <button type="button" class="menu-btn">
-              <span word="{{ sense|trim }}" class="menu-text">{{ sense|trim }}</span>
+          <li class="thesaurus_item">
+            <button type="button" class="thesaurus_button">
+              <span word="{{ sense|trim }}" class="thesaurus_text">{{ sense|trim }}</span>
             </button>
           </li>
         {% endfor %}
@@ -27,9 +27,9 @@
 
     </li>
   {% else %}
-    <li class="menu-item">
-      <button type="button" class="menu-btn">
-        <span word="{{ sense|trim }}" class="menu-text">{{ meaning|trim }}</span>
+    <li class="thesaurus_item">
+      <button type="button" class="thesaurus_button">
+        <span word="{{ sense|trim }}" class="thesaurus_text">{{ meaning|trim }}</span>
       </button>
     </li>
   {% endif %}
