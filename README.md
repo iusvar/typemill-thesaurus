@@ -1,6 +1,6 @@
 # About typemill-thesaurus
 
-The dictionary is a plugin for searching for synonyms and the meaning of a word for [Typemill](https://github.com/typemill/typemill)
+The `thesaurus` is a plugin for searching for synonyms and the meaning of a word for [Typemill](https://github.com/typemill/typemill)
 
 ![Typemill Thesaurus](assets/thesaurus.gif)
 
