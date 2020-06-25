@@ -59,6 +59,8 @@ Typemill-thesaurus is published under MIT licence. Please check the licence of t
 
 This plugin would not have been possible without the [LibreOffice dictionaries](https://github.com/LibreOffice/dictionaries). Make sure you give that project a star on GitHub. Please read the licenses for each individual dictionary in the `data` folder.
 
+Typemill-thesaurus uses the [Toastify](https://github.com/apvarun/toastify-js) library.
+
 ## How to Contribute
 
 Here are some contribution-ideas for non-coder:

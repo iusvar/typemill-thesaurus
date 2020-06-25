@@ -50,8 +50,8 @@ class Thesaurus extends Plugin
     $this->addJS('/thesaurus/public/vue-thesaurus.js');
 
     // https://github.com/apvarun/toastify-js
-    $this->addJS('/thesaurus/public/toastify.min.js');
-    $this->addCSS('/thesaurus/public/toastify.min.css');
+    $this->addJS('/thesaurus/public/toastify/toastify.min.js');
+    $this->addCSS('/thesaurus/public/toastify/toastify.min.css');
   }
 
 }
